@@ -3,11 +3,11 @@ pipeline {
 
     stages {
         
-        stage('Build with Maven') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
+        //stage('Build with Maven') {
+            //steps {
+                //sh 'mvn clean package'
+            //}
+        //}
         stage('Build Docker image') {
             steps {
                  withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
