@@ -11,7 +11,7 @@ WORKDIR /app
 #FROM eclipse-temurin:17-jre-alpine
 
 # Copy only the final artifact (JAR file)
-COPY /app/target/*.jar .
+COPY target/*.jar .
 
 # Expose the port your application runs on
 EXPOSE 8080
