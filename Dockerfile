@@ -1,6 +1,6 @@
 # Stage 1: Build the application (uses JDK)
 FROM openjdk:17-jdk-alpine 
-
+WORKDIR /app
 # Copy your application source code
 # COPY . /app
 
