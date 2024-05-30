@@ -16,11 +16,11 @@ pipeline {
                  sh 'docker login -u $USERNAME -p $PASSWORD'
     // Your Docker commands using the environment variables
                   // Access JAR file path dynamically (if environment variable not set)
-                  jarFilePath = 'target/*.jar'    
+                 jarFilePath = 'target/*.jar'    
                  sh 'docker build -t wordsapi:${BUILD_NUMBER} . \
                     -c "COPY ${jarFilePath} app/" '
-                sh 'docker tag wordsapi:${BUILD_NUMBER} dkfolefac/wordsapi:${BUILD_NUMBER}'
-                sh 'docker push dkfolefac/wordsapi:${BUILD_NUMBER}'
+                 sh 'docker tag wordsapi:${BUILD_NUMBER} dkfolefac/wordsapi:${BUILD_NUMBER}'
+                 sh 'docker push dkfolefac/wordsapi:${BUILD_NUMBER}'
             }
         }
     }
