@@ -1,6 +1,6 @@
 # Stage 1: Build the application (uses JDK)
 FROM openjdk:17-jdk-alpine 
-WORKDIR /app
+
 # Copy your application source code
 # COPY . /app
 
@@ -11,7 +11,7 @@ WORKDIR /app
 #FROM eclipse-temurin:17-jre-alpine
 
 # Copy only the final artifact (JAR file)
-COPY target/*.jar .
+COPY /var/lib/jenkins/workspace/wordpipe/target/*.jar .
 
 # Expose the port your application runs on
 EXPOSE 8080
