@@ -18,11 +18,12 @@ pipeline {
                 script {     
                   // Access JAR file path dynamically (if environment variable not set)
                    jarFilePath = 'target/*.jar'    
-                }
+                
                  sh 'docker build -t wordsapi:${BUILD_NUMBER} . \
                     -c "COPY ${jarFilePath} app/" '
                  sh 'docker tag wordsapi:${BUILD_NUMBER} dkfolefac/wordsapi:${BUILD_NUMBER}'
                  sh 'docker push dkfolefac/wordsapi:${BUILD_NUMBER}'
+                }     
             }
         }
     }
