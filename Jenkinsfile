@@ -25,9 +25,9 @@ pipeline {
                   
                   sh "docker build -t wordapi:latest -f Dockerfile --build-arg JAR_FILE=target/wordapi.jar ."
                 
-                 //sh 'docker build -t wordsapi:${BUILD_NUMBER} .'
-                  sh 'docker tag wordsapi:latest dkfolefac/wordsapi:${BUILD_NUMBER}'
-                  sh 'docker push dkfolefac/wordsapi:${BUILD_NUMBER}'
+                 //sh 'docker build -t wordapi:${BUILD_NUMBER} .'
+                  sh 'docker tag wordapi:latest dkfolefac/wordapi:${BUILD_NUMBER}'
+                  sh 'docker push dkfolefac/wordapi:${BUILD_NUMBER}'
                      
                      
                 }
