@@ -11,7 +11,7 @@ COPY . /app
 #FROM eclipse-temurin:17-jre-alpine
 
 # Copy only the final artifact (JAR file)
-COPY workspace/wordpipe/target/*.jar .
+COPY --from=builder ${JAR_FILE} /app/lib/wordsmith.jar
 
 # Expose the port your application runs on
 EXPOSE 8080
