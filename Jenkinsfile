@@ -8,6 +8,7 @@ pipeline {
         stage('Build with Maven') {
             steps {
                 sh 'mvn clean package'
+                sh 'mvn help:effective-goal'
             }
         }
         stage('Build Docker image') {
