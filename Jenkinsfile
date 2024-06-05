@@ -17,23 +17,19 @@ pipeline {
                  
                   sh 'docker login -u $USERNAME -p $PASSWORD'
     // Your Docker commands using the environment variables
-                 script {     
+                    
                   // Access JAR file path dynamically (if environment variable not set)
                    //jarFilePath = 'target/*.jar'   
                    // def pomFile = readMavenPom project: '.'
                     //def appName = pomFile.getName()
- 
-                    docker {
-                        // Build the image with the JAR file copied
-                        build tag: "wordapi:latest",
-                             dockerfile: 'Dockerfile',
-                             buildArguments: [ JAR_FILE: "target/wordapi.jar" ]
+                  
+                  sh "docker build -t wordapi:latest -f Dockerfile --build-arg JAR_FILE=target/wordapi.jar ."
                 
                  //sh 'docker build -t wordsapi:${BUILD_NUMBER} .'
                  //sh 'docker tag wordsapi:${BUILD_NUMBER} dkfolefac/wordsapi:${BUILD_NUMBER}'
                  //sh 'docker push dkfolefac/wordsapi:${BUILD_NUMBER}'
-                    }    
-                 }     
+                     
+                     
                 }
             }     
         }
