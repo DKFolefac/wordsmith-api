@@ -20,8 +20,8 @@ pipeline {
                  script {     
                   // Access JAR file path dynamically (if environment variable not set)
                    //jarFilePath = 'target/*.jar'   
-                    def pomFile = readMavenPom project: '.'
-                    def appName = pomFile.getName()
+                   // def pomFile = readMavenPom project: '.'
+                    //def appName = pomFile.getName()
  
                     docker {
                         // Build the image with the JAR file copied
