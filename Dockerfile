@@ -1,5 +1,5 @@
 
-FROM maven:3.9-eclipse-temurin-11-alpine as build
+FROM maven:3.9.7-eclipse-temurin-17-alpine as build
 WORKDIR /app
 # Copy your application pom file
 COPY pom.xml .
