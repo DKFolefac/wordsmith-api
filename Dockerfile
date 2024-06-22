@@ -7,7 +7,7 @@ COPY pom.xml .
 # Use your build tool (e.g., Maven, Gradle) to build
 RUN mvn verify -DskipTests --fail-never
 COPY src ./src
-RUN mvn verify -X
+RUN mvn clean package
 
 
 # Stage 2: Create the final image (uses JRE)
