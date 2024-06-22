@@ -1,5 +1,5 @@
 
-FROM maven:3.8-jdk-alpine as build
+FROM maven:3.9-eclipse-temurin-11-alpine as build
 WORKDIR /app
 # Copy your application pom file
 COPY pom.xml .
@@ -14,11 +14,11 @@ RUN mvn verify
 # Copy only the final artifact (JAR file)
 FROM  openkdk:17-jre-alpine
 WORKDIR /app
-COPY --from=build /app/target .
+COPY --from=build /app/target/*.jar ./words.jar
 
 # Expose the port your application runs on
 EXPOSE 8080
 
 # Specify the command to run the application
 
-ENTRYPOINT ["java", "-jar", "/app/target/words.jar"]
+ENTRYPOINT ["java", "-jar", "/app/words.jar"]
