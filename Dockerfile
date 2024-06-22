@@ -12,7 +12,7 @@ RUN mvn verify
 
 # Stage 2: Create the final image (uses JRE)
 # Copy only the final artifact (JAR file)
-FROM  openkdk:17-jre-alpine
+FROM  openjdk:17-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar ./words.jar
 
