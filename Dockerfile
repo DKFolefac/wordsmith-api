@@ -1,5 +1,5 @@
 
-FROM maven:3-amazoncoretto-20 as build
+FROM maven:3.8-jdk-alpine as build
 WORKDIR /app
 # Copy your application pom file
 COPY pom.xml .
