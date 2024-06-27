@@ -17,8 +17,9 @@ WORKDIR /usr/local/app
 COPY --from=build /usr/local/app/target/ .
 
 # Expose the port your application runs on
-EXPOSE 8080
 
 # Specify the command to run the application
 
-ENTRYPOINT ["java", "-jar", "usr/local/app/target/words.jar"]
+ENTRYPOINT ["java", "-jar", "usr/local/app/words.jar"]
+
+EXPOSE 8080
