@@ -1,6 +1,6 @@
 
 FROM maven:3.9.7-eclipse-temurin-17-alpine as build
-WORKDIR /app
+WORKDIR /usr/local/app
 # Copy your application pom file
 COPY pom.xml .
 
@@ -13,12 +13,12 @@ RUN mvn clean package
 # Stage 2: Create the final image (uses JRE)
 # Copy only the final artifact (JAR file)
 FROM  openjdk:17-alpine
-WORKDIR /app
-COPY --from=build /app/target/*.jar ./words.jar
+WORKDIR /usr/local/app
+COPY --from=build /app/target/ .
 
 # Expose the port your application runs on
 EXPOSE 8080
 
 # Specify the command to run the application
 
-ENTRYPOINT ["java", "-jar", "/app/words.jar"]
+ENTRYPOINT ["java", "-jar", "usr/local/app/words.jar"]
