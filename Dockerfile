@@ -14,7 +14,7 @@ RUN mvn clean package
 # Copy only the final artifact (JAR file)
 FROM  openjdk:17-alpine
 WORKDIR /usr/local/app
-COPY --from=build /app/target/ .
+COPY --from=build /usr/local/app/target/ .
 
 # Expose the port your application runs on
 EXPOSE 8080
