@@ -21,4 +21,4 @@ EXPOSE 8080
 
 # Specify the command to run the application
 
-ENTRYPOINT ["java", "-jar", "usr/local/app/words.jar"]
+ENTRYPOINT ["java", "-jar", "usr/local/app/target/words.jar"]
