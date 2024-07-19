@@ -1,0 +1,9 @@
+postgres:
+    config:
+        data:
+            - key: POSTGRES_DB
+              value: kelly
+            - key: POSTGRES_USER
+              value: kelly
+            - key: POSTGRES_PASSWORD
+              value: kelly

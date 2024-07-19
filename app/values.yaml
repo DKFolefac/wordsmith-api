@@ -1,0 +1,18 @@
+# Default values for app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+app:
+  name: app
+  group: app
+  replicaCount: 1
+  container:
+    image: jaymath237/wordsmith-api-project
+    port: 8080
+    config: []
+    env:
+       - key: key
+         value: value
+  service:
+    type: ClusterIP
+    port: 8081

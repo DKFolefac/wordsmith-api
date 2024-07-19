@@ -1,0 +1,11 @@
+replicaCount: 1
+web:
+  name: web 
+  group: db
+  container:
+    image: dkfolefac/postgresword:10
+    port: 80
+  service:
+    type: ClusterIP
+    port: 3030
+  volume:

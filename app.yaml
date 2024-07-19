@@ -1,0 +1,10 @@
+app:
+  name: app
+  group: backend
+  container:
+    image: jaymath237/wordsmith-api-project
+    config:
+      - name: 
+    env: 
+      - key: DB_SERVER
+        value: postgres
