@@ -12,7 +12,7 @@ RUN mvn clean package
 
 # Stage 2: Create the final image (uses JRE)
 # Copy only the final artifact (JAR file)
-FROM  openjdk:11
+FROM  openjdk:17-alpine
 
 COPY --from=build /usr/local/app/target/*.jar words.jar
 
