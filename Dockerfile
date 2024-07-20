@@ -1,5 +1,5 @@
 
-FROM maven:3.9.7-eclipse-temurin-17-alpine as build
+FROM maven:3.9-openjdk-11 as build
 WORKDIR /usr/local/app
 # Copy your application pom file
 COPY pom.xml .
