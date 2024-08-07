@@ -1,16 +1,16 @@
 pipeline {
     agent any
     tools {
-        maven 'Maven'
+        maven 'maven'
     }   
     stages {
         
-        //stage('Build with Maven') {
-            //steps {
-                //sh 'mvn clean package'
-                
-            //}
-        //}
+        stage('Build with Maven') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/damienmwene/wordsmith-api.git']])
+                sh 'mvn clean install'
+            }
+        }
         stage('Build Docker image') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
